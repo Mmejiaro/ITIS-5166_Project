@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color: #daedf4;
+}
+
+/* header styling */
+header {
+  background-color: white;
+  padding: 10px 25px;
+  position: sticky;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-logo {
+  width: 150px;
+}
+
+.user-nav-buttons {
+  margin-right: 5%;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  margin-right: 25px;
+  font-size: 20px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* main styling */
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-content {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.left-content div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.right-content {
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-content img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* footer styling */
+footer {
+  background-color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-info {
+  display: flex;
+  margin-left: 10px;
+}
+
+.footer-info a {
+  text-decoration: none;
+  margin-left: 10px;
+  color: black;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+.social-media-icons {
+  padding-right: 15px;
+}
+
+.social-media-icons a {
+  margin-right: 10px;
+}
+
+.social-media-icons a img {
+  width: 25px;
+}
+
+/* for smaller screens */
+@media (max-width: 700px) {
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
