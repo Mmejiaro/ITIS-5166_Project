@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/newConnection.css" />
     <title>Document</title>
   </head>
 
@@ -25,7 +26,60 @@
         <a href="connections.html">Connections</a>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <div id="form-container">
+        <form class="form" action="#" method="get">
+          <div class="form-input">
+            <label for="event-topic">Topic:</label>
+            <input id="event-topic" type="text" placeholder="topic" />
+          </div>
+
+          <div class="form-input">
+            <label for="event-title">Title:</label>
+            <input id="event-title" type="text" placeholder="title" />
+          </div>
+
+          <div class="form-input">
+            <label for="event-host">Host:</label>
+            <input id="event-host" type="text" placeholder="host" />
+          </div>
+
+          <div class="form-input">
+            <label for="event-details">Details:</label>
+            <textarea id="event-details" placeholder="description"></textarea>
+          </div>
+
+          <div class="form-input">
+            <label for="event-loc">Where:</label>
+            <input id="event-loc" type="text" placeholder="location" />
+          </div>
+
+          <div class="form-input">
+            <label for="event-time">When:</label>
+            <input id="event-time" type="date" />
+          </div>
+
+          <div class="form-input">
+            <label for="event-start">Start:</label>
+            <input id="event-start" type="time" />
+          </div>
+
+          <div class="form-input">
+            <label for="event-end">End:</label>
+            <input id="event-end" type="time" />
+          </div>
+
+          <div class="form-input">
+            <label for="event-img">Image URL:</label>
+            <input id="event-img" type="url" placeholder="imageURL" />
+          </div>
+
+          <div class="form-input">
+            <button type="submit">Create Connection</button>
+          </div>
+        </form>
+      </div>
+    </main>
     <footer>
       <div class="footer-info">
         <p>&copy; Neighborhood Connections</p>
