@@ -2,41 +2,51 @@
 
 main {
   font-family: "Lato", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
+  margin: 0;
+  padding-top: 5px;
 }
+
 .all-events {
   display: flex;
-  justify-content: space-around;
-  margin-top: 15%;
 }
 
-.event-headers {
-  font-size: 30px;
-  padding-bottom: 10px;
+.event {
+  padding: 0 25px;
 }
 
-ul {
-  list-style-type: none;
-  padding-left: 20px;
+.event h3 {
+  font-size: 28px;
+  padding-bottom: 5px;
 }
 
-ul li {
+.event ul {
+  list-style-type: ">";
+}
+
+.event ul li {
+  padding-left: 5px;
   padding-bottom: 5px;
   font-size: 20px;
 }
 
-ul li a {
+.event ul li a {
   color: black;
   text-decoration: none;
 }
 
-ul li a:hover {
+.event ul li a:hover {
   text-decoration: underline;
 }
 
 @media (max-width: 600px) {
   .all-events {
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  }
+  .event {
+    padding-bottom: 25px;
   }
 }
