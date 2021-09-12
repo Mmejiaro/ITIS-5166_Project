@@ -51,6 +51,9 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 75vh;
+  margin: 0;
+  padding-top: 5px;
 }
 
 .left-content {
@@ -66,20 +69,27 @@ nav a:hover {
   text-align: center;
 }
 
+.left-content p {
+  max-width: 80%;
+}
+
 .right-content {
   margin-left: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-right: 20px;
 }
 
 .right-content img {
-  flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 500px;
+  border-radius: 50px;
 }
 
+.pool {
+  padding-bottom: 15px;
+}
 /* footer styling */
 footer {
   background-color: white;
@@ -127,5 +137,12 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .right-content img {
+    width: 400px;
+  }
+  .left-content p {
+    width: 75%;
   }
 }
