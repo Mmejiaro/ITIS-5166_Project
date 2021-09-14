@@ -48,7 +48,8 @@ main {
   justify-content: space-evenly;
   align-items: center;
 }
-.event-buttons button {
+.event-buttons a {
+  text-decoration: none;
   text-align: center;
   cursor: pointer;
   background-color: #3498db;
