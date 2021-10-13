@@ -1,40 +1,27 @@
 const express = require('express');
+const controller = require('../controllers/connectionController');
 
 const router = express.Router();
 
 // GET /connections
-router.get('/', (req, res) => {
-    res.send('send all connections');
-});
+router.get('/', controller.index);
 
 // GET send form to create a new connection
-router.get('/new', (req, res) => {
-    res.send('send new form');
-});
+router.get('/new', controller.new);
 
 // POST create a new connection
-router.post('/', (req, res) => {
-    res.send('Created a new connection');
-});
+router.post('/', controller.create);
 
 // GET /connections/:id send details of connection by id
-router.get('/:id', (req, res) => {
-    res.send('send story with id ' + req.params.id);
-});
+router.get('/:id', controller.show);
 
 //GET /stories/:id/edit
-router.get('/:id/edit', (req, res) => {
-    res.send('send edit form');
-});
+router.get('/:id/edit', controller.edit);
 
 // PUT /stories/:id update the story by id
-router.put('/:id', (req, res) => {
-    res.send('update story with id ' + req.params.id);
-});
+router.put('/:id', controller.update);
 
 // DELETE /stories/:id delete the story by id
-router.delete('/:id', (req, res) => {
-    res.send('delete story with id ' + req.params.id);
-});
+router.delete('/:id', controller.delete);
 
 module.exports = router;
