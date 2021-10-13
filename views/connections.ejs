@@ -1,0 +1,53 @@
+<%- include('./partials/header.ejs') %>
+    <link rel="stylesheet" href="/css/connections.css" />
+    <title>Neighborhood Events</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <a href="./index.html"
+          ><img class="header-logo" src="./media/logo.png" alt="logo"
+        /></a>
+
+        <nav class="user-nav-buttons">
+          <a href="./newConnection.html">Start a new connection</a>
+          <a href="#">Login</a>
+          <a href="#">Sign Up</a>
+        </nav>
+      </div>
+      <hr />
+
+      <nav>
+        <a href="connections.html">Connections</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="all-events">
+        <div class="event">
+          <h3 class="event-headers">Upcoming Events</h3>
+          <ul>
+            <li><a href="./connection.html">Bbq Party</a></li>
+            <li><a href="./connection.html">Pizza Party</a></li>
+            <li><a href="./connection.html">Garage Sale</a></li>
+          </ul>
+        </div>
+        <div class="event">
+          <h3 class="event-headers">Club Events</h3>
+          <ul>
+            <li><a href="./connection.html">Book club get together</a></li>
+            <li><a href="./connection.html">Garden club movie night</a></li>
+          </ul>
+        </div>
+        <div class="event">
+          <h3 class="event-headers">Indoor/Outdoor Activites</h3>
+          <ul>
+            <li><a href="./connection.html">Swimming Lesson</a></li>
+            <li><a href="./connection.html">Soccer game</a></li>
+            <li><a href="./connection.html">Crossfit</a></li>
+          </ul>
+        </div>
+      </div>
+    </main>
+<%- include('./partials/footer.ejs') %>

@@ -1,0 +1,50 @@
+<%- include('./partials/header.ejs') %>
+    <title>Neighborhood Events</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <a href="#"
+          ><img class="header-logo" src="/media/logo.png" alt="logo"
+        /></a>
+
+        <nav class="user-nav-buttons">
+          <a href="./newConnection.html">Start a new connection</a>
+          <a href="#">Login</a>
+          <a href="#">Sign Up</a>
+        </nav>
+      </div>
+      <hr />
+
+      <nav>
+        <a href="./connections.html">Connections</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <div class="left-content">
+          <div>
+            <h2>Welcome to The Neighborhood Connections site.</h2>
+            <p>
+              Attend and create neighborhood events to connect with people or
+              look and see what events are going on now. From garage sales, pool
+              parties, bbq, and other events. Come check it out!!
+            </p>
+            <p>Check out the Connections section to browse available Events!</p>
+          </div>
+          <div>
+            <img src="/media/bbq_party.webp" alt="barbeque party" />
+          </div>
+        </div>
+        <div class="right-content">
+          <img class="pool" src="/media/pool_party.jpg" alt="pool party" />
+          <img
+            src="/media/monthly_gathering.jpg"
+            alt="neighborhood gathering"
+          />
+        </div>
+      </div>
+    </main>
+<%- include('./partials/footer.ejs') %>
