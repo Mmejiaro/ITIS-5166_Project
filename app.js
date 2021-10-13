@@ -14,6 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     res.render('index');
 });
+app.get('/contact', (req, res) => {
+    res.render('contact');
+});
 
 app.listen(port, host, () => {
     console.log('Server is running on port', port);
