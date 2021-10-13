@@ -1,4 +1,6 @@
 const express = require('express');
+const connectionRoutes = require('./routes/connectionRoutes');
+const mainRoute = require('./routes/mainRoute');
 
 const app = express();
 
@@ -11,12 +13,10 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 // route
-app.get('/', (req, res) => {
-    res.render('index');
-});
-app.get('/contact', (req, res) => {
-    res.render('contact');
-});
+app.get('/', mainRoute);
+
+app.use('/connections', connectionRoutes);
+
 
 app.listen(port, host, () => {
     console.log('Server is running on port', port);
