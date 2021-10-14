@@ -1,7 +1,11 @@
 <%- include('./partials/head.ejs') %>
-        <title>Error</title>
-    </head>
-    <body>
-        <%- include('./partials/header.ejs') %>
+    <title>Neighborhood Events</title>
+  </head>
 
-    <%- include('./partials/footer.ejs') %>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+            <h3><%=error.status%> Error </h3> 
+            <p><%=error.message%></p>
+    </main>
+<%- include('./partials/footer.ejs') %>

@@ -18,45 +18,53 @@ exports.create = (req, res) => {
     res.redirect('./connections');
 };
 
-exports.show = (req, res) => {
+exports.show = (req, res, next) => {
     let id = req.params.id;
     let connection = model.findById(id);
     if(connection) {
         res.render('./connection/connection', {connection});
     }
     else {
-        res.status(404).send('Cannot find connection with id ' + id);
+        let err = new Error('Cannot find a connection with id ' + id);
+        err.status = 404;
+        next(err);
     }
 };
 
-exports.edit = (req, res) => {
+exports.edit = (req, res, next) => {
     let id = req.params.id;
     let connection = model.findById(id);
     if(connection) {
         res.render('./connection/edit', {connection});
     }
     else {
-        res.status(404).send('Cannot find connection with id ' + id);
+        let err = new Error('Cannot find a connection with id ' + id);
+        err.status = 404;
+        next(err);
     }
 };
 
-exports.update = (req, res) => {
+exports.update = (req, res, next) => {
     let connection = req.body;
     let id = req.params.id;
     if (model.updateById(id, connection)) {
         res.redirect('/connections/' + id);
     }
     else {
-        res.status(404).send('Cannot find connection with id ' + id);
+        let err = new Error('Cannot find a connection with id ' + id);
+        err.status = 404;
+        next(err);
     }
 };
 
-exports.delete = (req, res) => {
+exports.delete = (req, res, next) => {
     let id = req.params.id;
     if(model.deleteById(id)){
         res.redirect('/connections');
     }
     else {
-        res.status(404).send('Cannot find story with id ' + id);
+        let err = new Error('Cannot find a connection with id ' + id);
+        err.status = 404;
+        next(err);
     }
 };
