@@ -7,29 +7,22 @@
     <%- include('../partials/header.ejs') %>
     <main>
       <div class="all-events">
-        <div class="event">
-          <h3 class="event-headers">Upcoming Events</h3>
-          <ul>
-            <li><a href="./connection.html">Bbq Party</a></li>
-            <li><a href="./connection.html">Pizza Party</a></li>
-            <li><a href="./connection.html">Garage Sale</a></li>
-          </ul>
-        </div>
-        <div class="event">
-          <h3 class="event-headers">Club Events</h3>
-          <ul>
-            <li><a href="./connection.html">Book club get together</a></li>
-            <li><a href="./connection.html">Garden club movie night</a></li>
-          </ul>
-        </div>
-        <div class="event">
-          <h3 class="event-headers">Indoor/Outdoor Activites</h3>
-          <ul>
-            <li><a href="./connection.html">Swimming Lesson</a></li>
-            <li><a href="./connection.html">Soccer game</a></li>
-            <li><a href="./connection.html">Crossfit</a></li>
-          </ul>
-        </div>
+        <% if(categories.length) { 
+          categories.forEach(category => { %>
+            <div class="event">
+              <h3 class="event-headers"><%= category %></h3>
+              <ul>
+              <% if(connections.length) {
+                connections.forEach(connection => {
+                  if(connection.category === category) { %>
+                    <li><a href="/connections/<%= connection.id %>"><%= connection.name %></a></li>
+                  <% }
+                });
+              } %>
+              </ul>
+            </div>
+          <% }); %>
+        <% } %>
       </div>
     </main>
 <%- include('../partials/footer.ejs') %>

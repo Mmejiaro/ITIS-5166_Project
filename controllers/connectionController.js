@@ -1,5 +1,9 @@
+const model = require('../models/connection');
+
 exports.index = (req, res) => {
-    res.render('./connection/connections');
+    let categories = model.categories();
+    let connections = model.find();
+    res.render('./connection/connections', {categories, connections});
 };
 
 exports.new = (req, res) => {
@@ -11,7 +15,14 @@ exports.create = (req, res) => {
 };
 
 exports.show = (req, res) => {
-    res.send('send story with id ' + req.params.id);
+    let id = req.params.id;
+    let connection = model.findById(id);
+    if(connection) {
+        res.render('./connection/connection', {connection});
+    }
+    else {
+        res.status(404).send('Cannot find connection with id ' + id);
+    }
 };
 
 exports.edit = (req, res) => {

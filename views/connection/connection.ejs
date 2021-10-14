@@ -6,25 +6,22 @@
     <%- include('../partials/header.ejs') %>
     <main>
       <div class="content">
-        <h2 id="event-title">Pizza Party</h2>
+        <h2 id="event-title"><%= connection.name %></h2>
         <div class="event">
           <div id="event-img-container">
-            <img id="event-img" src="./media/pizza.png" alt="pizza party" />
+            <img id="event-img" src="<%= connection.img %>" alt="pizza party" />
           </div>
           <div class="event-info">
-            <h3>Hosted by: John Doe</h3>
-            <p>Thrusday, August 29, 2021</p>
-            <p>5:30pm - 6:30pm</p>
-            <p>location of event</p>
+            <h3>Hosted by: <%= connection.hostName %></h3>
+            <p><%= connection.date %></p>
+            <p><%= connection.time %></p>
+            <p><%= connection.loc %></p>
           </div>
         </div>
         <div class="event-details">
           <h3>Details</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
-            officiis molestiae alias cum aspernatur reprehenderit cumque est in
-            quis consequatur eveniet non aliquam dolorum molestias animi, soluta
-            id sequi eligendi!
+            <%= connection.details %>
           </p>
         </div>
         <div class="event-buttons">
