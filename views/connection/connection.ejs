@@ -24,10 +24,10 @@
             <%= connection.details %>
           </p>
         </div>
-        <div class="event-buttons">
-          <a href="./connections.html">Update</a>
-          <a href="./connections.html">Delete</a>
-        </div>
+        <form class="event-buttons">
+          <button type="submit" formmethod="GET" formaction="/connections/<%= connection.id %>/edit">Update</button>
+          <!-- <a href="./connections.html">Delete</a> -->
+        </form>
       </div>
     </main>
 <%- include('../partials/footer.ejs') %>

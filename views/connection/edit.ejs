@@ -1,7 +1,58 @@
 <%- include('../partials/head.ejs') %>
-        <title>Edit</title>
-    </head>
-    <body>
-        <%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/css/newConnection.css" />
+    <title>Update Connection</title>
+  </head>
 
-    <%- include('../partials/footer.ejs') %>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+      <div id="form-container">
+        <form class="form" action="/connections" method="POST">
+
+          <div class="form-input">
+            <label for="event-title">Title:</label>
+            <input id="event-title" type="text" value="<%= connection.name %>" name="name"/>
+          </div>
+
+          <div class="form-input">
+            <label for="hostName">Host:</label>
+            <input id="hostName" type="text" value="<%= connection.hostName %>" name="hostName"/>
+          </div>
+
+          <div class="form-input">
+            <label for="details">Details:</label>
+            <textarea id="details" name="details"><%= connection.details %></textarea>
+          </div>
+
+          <div class="form-input">
+            <label for="loc">Where:</label>
+            <input id="loc" type="text" value="<%= connection.loc %>" name="loc"/>
+          </div>
+
+          <div class="form-input">
+            <label for="date">Date:</label>
+            <input id="date" type="date" name="date" value="<%= connection.date %>"/>
+          </div>
+
+          <div class="form-input">
+            <label for="startTime">Start:</label>
+            <input id="startTime" type="time" name="startTime" value="<%= connection.startTime %>"/>
+          </div>
+
+          <div class="form-input">
+            <label for="endTime">End:</label>
+            <input id="endTime" type="time" name="endTime" value="<%= connection.endTime %>"/>
+          </div>
+
+          <div class="form-input">
+            <label for="img">Image URL:</label>
+            <input id="img" type="url" value="<%= connection.img %>" name="img"/>
+          </div>
+
+          <div class="form-input">
+            <button type="submit">Update Connection</button>
+          </div>
+        </form>
+      </div>
+    </main>
+<%- include('../partials/footer.ejs') %>

@@ -29,7 +29,14 @@ exports.show = (req, res) => {
 };
 
 exports.edit = (req, res) => {
-    res.send('send edit form');
+    let id = req.params.id;
+    let connection = model.findById(id);
+    if(connection) {
+        res.render('./connection/edit', {connection});
+    }
+    else {
+        res.status(404).send('Cannot find connection with id ' + id);
+    }
 };
 
 exports.update = (req, res) => {
