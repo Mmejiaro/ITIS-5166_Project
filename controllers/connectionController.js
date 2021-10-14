@@ -1,3 +1,4 @@
+const e = require('express');
 const model = require('../models/connection');
 
 exports.index = (req, res) => {
@@ -51,5 +52,11 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    res.send('delete story with id ' + req.params.id);
+    let id = req.params.id;
+    if(model.deleteById(id)){
+        res.redirect('/connections');
+    }
+    else {
+        res.status(404).send('Cannot find story with id ' + id);
+    }
 };

@@ -26,7 +26,7 @@
         </div>
         <form class="event-buttons">
           <button type="submit" formmethod="GET" formaction="/connections/<%= connection.id %>/edit">Update</button>
-          <!-- <a href="./connections.html">Delete</a> -->
+          <button type="submit" formmethod="POST" formaction="/connections/<%= connection.id %>?_method=DELETE">Delete</button>
         </form>
       </div>
     </main>

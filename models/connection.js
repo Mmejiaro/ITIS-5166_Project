@@ -80,3 +80,14 @@ exports.updateById = function(id, updatedConnection) {
         return false;
     }
 }
+
+exports.deleteById = function(id) {
+    let index = connections.findIndex(connection => connection.id === id);
+    if(index !== 1) {
+        connections.splice(index, 1);
+        return true;
+    }
+    else {
+        return false;
+    }
+}
