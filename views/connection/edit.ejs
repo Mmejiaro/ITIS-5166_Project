@@ -7,7 +7,7 @@
     <%- include('../partials/header.ejs') %>
     <main>
       <div id="form-container">
-        <form class="form" action="/connections" method="POST">
+        <form class="form" method="POST" action="/connections/<%=connection.id%>?_method=PUT">
 
           <div class="form-input">
             <label for="event-title">Title:</label>
@@ -46,7 +46,7 @@
 
           <div class="form-input">
             <label for="img">Image URL:</label>
-            <input id="img" type="url" value="<%= connection.img %>" name="img"/>
+            <input id="img" type="text" value="<%= connection.img %>" name="img"/>
           </div>
 
           <div class="form-input">

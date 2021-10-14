@@ -1,3 +1,4 @@
+const e = require('express');
 const {v4: uuidv4} = require('uuid');
 
 const categories = [
@@ -60,4 +61,22 @@ exports.findById = function(id) {
 exports.save = function(connection) {
     connection.id = uuidv4();
     connections.push(connection);
+}
+
+exports.updateById = function(id, updatedConnection) {
+    let connection = connections.find(connection => connection.id === id);
+    if(connection){
+        connection.name = updatedConnection.name;
+        connection.hostName = updatedConnection.hostName;
+        connection.details = updatedConnection.details;
+        connection.loc = updatedConnection.loc;
+        connection.date = updatedConnection.date;
+        connection.startTime = updatedConnection.startTime;
+        connection.endTime = updatedConnection.endTime;
+        connection.img = updatedConnection.img;
+        return true;
+    }
+    else {
+        return false;
+    }
 }

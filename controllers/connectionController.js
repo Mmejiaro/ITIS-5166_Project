@@ -40,7 +40,14 @@ exports.edit = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    res.send('update story with id ' + req.params.id);
+    let connection = req.body;
+    let id = req.params.id;
+    if (model.updateById(id, connection)) {
+        res.redirect('/connections/' + id);
+    }
+    else {
+        res.status(404).send('Cannot find connection with id ' + id);
+    }
 };
 
 exports.delete = (req, res) => {
