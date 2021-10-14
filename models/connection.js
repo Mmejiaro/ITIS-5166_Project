@@ -1,3 +1,5 @@
+const {v4: uuidv4} = require('uuid');
+
 const categories = [
     'Upcoming Events',
     'Club Events',
@@ -12,7 +14,8 @@ const connections = [
         img : '/media/pizza.png',
         hostName: 'John Doe',
         date: 'Thrusday, August 29, 2021',
-        time: '5:30pm - 6:30pm',
+        startTime: '17:30',
+        endTime: '18:30',
         loc: 'earth',
         details: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio officiis molestiae alias cum aspernatur reprehenderit cumque est in quis consequatur eveniet non aliquam dolorum molestias animi, solutaid sequi eligendi!',
     },
@@ -23,7 +26,8 @@ const connections = [
         img : '/media/pizza.png',
         hostName: 'Jane Doe',
         date: 'Friday, October 15, 2021',
-        time: '2:30pm - 3:30pm',
+        startTime: '14:00',
+        endTime: '15:30',
         loc: 'earth',
         details: 'words',
     },
@@ -34,7 +38,8 @@ const connections = [
         img : '/media/pizza.png',
         hostName: 'George Lopez',
         date: 'Saturday, October 16, 2021',
-        time: '12:30pm - 1:30pm',
+        startTime: '12:30',
+        endTime: '13:30',
         loc: 'earth',
         details: 'words',
     }
@@ -51,3 +56,8 @@ exports.find = function() {
 exports.findById = function(id) {
     return connections.find(connection => connection.id === id);
 };
+
+exports.save = function(connection) {
+    connection.id = uuidv4();
+    connections.push(connection);
+}

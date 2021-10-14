@@ -7,50 +7,50 @@
     <%- include('../partials/header.ejs') %>
     <main>
       <div id="form-container">
-        <form class="form" action="#" method="get">
+        <form class="form" action="/connections" method="POST">
           <div class="form-input">
-            <label for="event-topic">Topic:</label>
-            <input id="event-topic" type="text" placeholder="topic" />
+            <label for="category">Category:</label>
+            <input id="category" type="text" placeholder="category" name="category"/>
           </div>
 
           <div class="form-input">
             <label for="event-title">Title:</label>
-            <input id="event-title" type="text" placeholder="title" />
+            <input id="event-title" type="text" placeholder="title" name="name"/>
           </div>
 
           <div class="form-input">
-            <label for="event-host">Host:</label>
-            <input id="event-host" type="text" placeholder="host" />
+            <label for="hostName">Host:</label>
+            <input id="hostName" type="text" placeholder="host name" name="hostName"/>
           </div>
 
           <div class="form-input">
-            <label for="event-details">Details:</label>
-            <textarea id="event-details" placeholder="description"></textarea>
+            <label for="details">Details:</label>
+            <textarea id="details" placeholder="description" name="details"></textarea>
           </div>
 
           <div class="form-input">
-            <label for="event-loc">Where:</label>
-            <input id="event-loc" type="text" placeholder="location" />
+            <label for="loc">Where:</label>
+            <input id="loc" type="text" placeholder="location" name="loc"/>
           </div>
 
           <div class="form-input">
-            <label for="event-time">When:</label>
-            <input id="event-time" type="date" />
+            <label for="date">Date:</label>
+            <input id="date" type="date" name="date"/>
           </div>
 
           <div class="form-input">
-            <label for="event-start">Start:</label>
-            <input id="event-start" type="time" />
+            <label for="startTime">Start:</label>
+            <input id="startTime" type="time" name="startTime"/>
           </div>
 
           <div class="form-input">
-            <label for="event-end">End:</label>
-            <input id="event-end" type="time" />
+            <label for="endTime">End:</label>
+            <input id="endTime" type="time" name="endTime"/>
           </div>
 
           <div class="form-input">
-            <label for="event-img">Image URL:</label>
-            <input id="event-img" type="url" placeholder="imageURL" />
+            <label for="img">Image URL:</label>
+            <input id="img" type="url" placeholder="imageURL" name="img"/>
           </div>
 
           <div class="form-input">

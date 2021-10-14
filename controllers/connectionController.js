@@ -7,11 +7,14 @@ exports.index = (req, res) => {
 };
 
 exports.new = (req, res) => {
-    res.send('send new form');
+    res.render('./connection/newConnection');
 };
 
 exports.create = (req, res) => {
-    res.send('Created a new connection');
+    // res.send('Created a new connection');
+    let connection = req.body;
+    model.save(connection);
+    res.redirect('./connections');
 };
 
 exports.show = (req, res) => {
