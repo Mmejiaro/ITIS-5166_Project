@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan');
 const connectionRoutes = require('./routes/connectionRoutes');
 const mainRoute = require('./routes/mainRoute');
 
@@ -11,6 +12,7 @@ app.set('view engine', 'ejs');
 // middleware
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(morgan('tiny'));
 
 // route
 app.get('/', mainRoute);
