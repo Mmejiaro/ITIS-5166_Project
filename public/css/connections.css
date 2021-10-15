@@ -12,10 +12,12 @@ main {
 
 .all-events {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .event {
   padding: 0 25px;
+  margin-top: 15px;
 }
 
 .event h3 {
