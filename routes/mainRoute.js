@@ -3,7 +3,7 @@ const controller = require('../controllers/mainController');
 
 const router = express.Router();
 
-// GET /connections
+// GET
 router.get('/', controller.index);
 
 router.get('/contact', controller.contact);

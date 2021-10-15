@@ -3,9 +3,9 @@ exports.index = (req, res) => {
 };
 
 exports.contact = (req, res) => {
-    res.render('/contact');
+    res.render('contact');
 };
 
 exports.about = (req, res) => {
-    res.render('/about');
+    res.render('about');
 };

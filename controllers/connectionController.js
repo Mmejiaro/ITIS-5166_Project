@@ -1,4 +1,3 @@
-const e = require('express');
 const model = require('../models/connection');
 
 exports.index = (req, res) => {
@@ -12,7 +11,6 @@ exports.new = (req, res) => {
 };
 
 exports.create = (req, res) => {
-    // res.send('Created a new connection');
     let connection = req.body;
     model.save(connection);
     res.redirect('./connections');

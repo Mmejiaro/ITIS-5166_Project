@@ -59,7 +59,10 @@ exports.findById = function(id) {
 };
 
 exports.save = function(connection) {
-    connection.id = uuidv4();
+    console.log(connection);
+    if (categories.indexOf(connection.category) === -1){
+        categories.push(connection.category);
+    }
     connections.push(connection);
 }
 

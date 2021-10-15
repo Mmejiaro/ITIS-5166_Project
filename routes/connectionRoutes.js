@@ -15,13 +15,13 @@ router.post('/', controller.create);
 // GET /connections/:id send details of connection by id
 router.get('/:id', controller.show);
 
-//GET /stories/:id/edit
+//GET /connections/:id/edit
 router.get('/:id/edit', controller.edit);
 
-// PUT /stories/:id update the story by id
+// PUT /connections/:id update the story by id
 router.put('/:id', controller.update);
 
-// DELETE /stories/:id delete the story by id
+// DELETE /connections/:id delete the story by id
 router.delete('/:id', controller.delete);
 
 module.exports = router;
