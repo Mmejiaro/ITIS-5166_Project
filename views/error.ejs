@@ -4,8 +4,10 @@
 
   <body>
     <%- include('./partials/header.ejs') %>
-    <main>
-            <h3><%=error.status%> Error </h3> 
-            <p><%=error.message%></p>
-    </main>
+    <main class="main-content">
+      <div id="aboutAndContact-page">
+        <h3>--- <%=error.status%> Error ---</h3> 
+        <p><%=error.message%></p>
+      </div>
+  </main>
 <%- include('./partials/footer.ejs') %>
