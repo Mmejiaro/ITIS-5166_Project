@@ -13,7 +13,7 @@ exports.new = (req, res) => {
 exports.create = (req, res) => {
     let connection = req.body;
     model.save(connection);
-    res.redirect('./connections');
+    res.redirect('/connections');
 };
 
 exports.show = (req, res, next) => {

@@ -120,6 +120,7 @@ exports.findById = function(id) {
 
 exports.save = function(connection) {
     console.log(connection);
+    connection.id = uuidv4();
     if (categories.indexOf(connection.category) === -1){
         categories.push(connection.category);
     }
