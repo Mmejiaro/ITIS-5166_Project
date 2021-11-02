@@ -1,19 +1,37 @@
 const model = require('../models/connection');
 
-exports.index = (req, res) => {
-    let categories = model.categories();
-    let connections = model.find();
-    res.render('./connection/connections', {categories, connections});
+exports.index = (req, res, next) => {
+    model.find()
+    .then(connections =>{
+        // get categories from database
+        let categories = [];
+        connections.forEach(connection => {
+            if(categories.indexOf(connection.category) === -1){
+                categories.push(connection.category);
+            }
+        });
+        res.render('./connection/connections', {categories, connections});
+    })
+    .catch(err => next(err));
 };
 
 exports.new = (req, res) => {
     res.render('./connection/newConnection');
 };
 
-exports.create = (req, res) => {
-    let connection = req.body;
-    model.save(connection);
-    res.redirect('/connections');
+exports.create = (req, res, next) => {
+    let connection = new model(req.body);
+    connection.save()
+    .then((connection) => {
+        // console.log(connection);
+        res.redirect('/connections');
+    })
+    .catch(err => {
+        if(err.name === 'ValidationError') {
+            err.status = 400;
+        }
+        next(err);
+    });
 };
 
 exports.show = (req, res, next) => {
