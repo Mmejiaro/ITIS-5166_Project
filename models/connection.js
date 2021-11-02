@@ -129,6 +129,7 @@ exports.updateById = function(id, updatedConnection) {
     let connection = connections.find(connection => connection.id === id);
     if(connection){
         connection.name = updatedConnection.name;
+        connection.category = updatedConnection.category;
         connection.hostName = updatedConnection.hostName;
         connection.details = updatedConnection.details;
         connection.loc = updatedConnection.loc;

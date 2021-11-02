@@ -8,7 +8,12 @@
     <main>
       <div id="form-container">
         <form class="form" method="POST" action="/connections/<%=connection.id%>?_method=PUT">
-
+          
+          <div class="form-input">
+            <label for="event-category">Category:</label>
+            <input id="event-category" type="text" value="<%= connection.category %>" name="category"/>
+          </div>
+          
           <div class="form-input">
             <label for="event-title">Title:</label>
             <input id="event-title" type="text" value="<%= connection.name %>" name="name"/>
