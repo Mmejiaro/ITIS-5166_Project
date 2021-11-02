@@ -36,15 +36,23 @@ exports.create = (req, res, next) => {
 
 exports.show = (req, res, next) => {
     let id = req.params.id;
-    let connection = model.findById(id);
-    if(connection) {
-        res.render('./connection/connection', {connection});
+    if(!id.match(/^[0-9a-fA-F]{24}$/)){
+        let err = new Error('Invalid connection id');
+        err.status = 400;
+        return next(err);
     }
-    else {
-        let err = new Error('Cannot find a connection with id ' + id);
-        err.status = 404;
-        next(err);
-    }
+    model.findById(id)
+    .then(connection => {
+        if(connection) {
+            return res.render('./connection/connection', {connection});
+        }
+        else {
+            let err = new Error('Cannot find a connection with id ' + id);
+            err.status = 404;
+            next(err);
+        }
+    })
+    .catch(err => next(err));
 };
 
 exports.edit = (req, res, next) => {
