@@ -154,29 +154,3 @@ exports.deleteById = function(id) {
         return false;
     }
 }
-
-// const mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
-
-// const categorySchema = new Schema({
-//     category: String
-// });
-// const connectionSchema = new Schema ({
-//     name: {type: String, required: [true, 'Name is required']},
-//     category: {type: String, required: [true, 'category is required']},
-//     img: {type: String, required: [true, 'img is required']},
-//     hostName: {type: String, required: [true, 'hostName is required']},
-//     date: {type: String, required: [true, 'date is required']},
-//     startTime: {type: String, required: [true, 'start time is required']},
-//     endTime: {type: String, required: [true, 'end time is required']},
-//     loc: {type: String, required: [true, 'location is required']},
-//     details: {type: String, required: [true, 'details is required']},
-// },
-// {timestamps: true}
-// );
-
-// // collection name categories
-// module.exports = mongoose.model('Category', categorySchema);
-
-// // collection name is connections
-// module.exports = mongoose.model('Connection', connectionSchema);
