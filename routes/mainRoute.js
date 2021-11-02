@@ -6,8 +6,8 @@ const router = express.Router();
 // GET
 router.get('/', controller.index);
 
-router.get('/contact', controller.contact);
+router.get('/home/contact', controller.contact);
 
-router.get('/about', controller.about);
+router.get('/home/about', controller.about);
 
 module.exports = router;

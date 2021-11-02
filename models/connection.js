@@ -1,11 +1,5 @@
-const e = require('express');
+const { connection } = require('mongoose');
 const {v4: uuidv4} = require('uuid');
-
-const categories = [
-    'Upcoming Events',
-    'Club Events',
-    'Indoor/Outdoor Activites',
-];
 
 const connections = [
     {
@@ -70,7 +64,7 @@ const connections = [
     },
     {
         id: '6',
-        name: 'Bird Watching Club ',
+        name: 'Bird Watching Club',
         category: 'Club Events',
         img : '/media/birdWatching.png',
         hostName: 'Kevin Hart',
@@ -106,9 +100,16 @@ const connections = [
     }
 ];
 
-exports.categories = function () {
+exports.categories = function() {
+    let categories = [];
+    connections.forEach(connection => {
+        if(categories.indexOf(connection.category) === -1){
+            console.log(connection.category);
+            categories.push(connection.category);
+        }
+    });
     return categories;
-};
+}
 
 exports.find = function() {
     return connections;
@@ -121,9 +122,6 @@ exports.findById = function(id) {
 exports.save = function(connection) {
     console.log(connection);
     connection.id = uuidv4();
-    if (categories.indexOf(connection.category) === -1){
-        categories.push(connection.category);
-    }
     connections.push(connection);
 }
 
