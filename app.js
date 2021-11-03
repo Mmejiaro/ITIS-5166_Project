@@ -12,7 +12,7 @@ let host = 'localhost';
 app.set('view engine', 'ejs');
 
 // connect to database
-mongoose.connect('mongodb://localhost:27017/project') // replace db name IMPORTANT DONT FORGET
+mongoose.connect('mongodb://localhost:27017/project')
 .then(() => {
     app.listen(port, host, () => {
         console.log('Server is running on port', port);
