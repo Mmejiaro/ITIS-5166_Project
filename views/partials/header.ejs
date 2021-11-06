@@ -18,9 +18,21 @@
     </div>
     <hr />
 
-    <nav>
-      <a href="/connections">Connections</a>
-    </nav>
+    <div class="bottomHeader">
+      <nav>
+        <a href="/connections">Connections</a>
+      </nav>
+      <% if(!user){ %>
+        <div>
+          <p>Welcome, Guest</p>
+        </div>
+      <% } 
+      else { %>
+        <div>
+          <p>Welcome, <%= user.firstName %></p>
+        </div>
+      <% } %>
+    </div>
   </header>
   <% if(errorMessages.length > 0) {
     errorMessages.forEach(message => { %>

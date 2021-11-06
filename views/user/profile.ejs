@@ -6,14 +6,33 @@
   <body>
     <%- include('../partials/header.ejs') %>
     <main>
-      <h2>Hello, <%=user.firstName%></h2>
-      <div>
+      <div class="profile">
+        <h2><%=user.firstName%>'s Connections</h2>
         <% if(connections.length) { %>
-          <p>You have created the following connections</p>
-          <% connections.forEach(connection => { %>
-            <a href="/connections/<%= connection.id %>"><p><%= connection.name %></p></a>
-          <% });
-        }
+          <table>
+            <thead>
+              <tr>
+                <th>Connection</th>
+                <th>Category</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% connections.forEach(connection => { %>
+              <tr>
+                <td><a href="/connections/<%= connection.id %>"><%= connection.name %></a></td>
+                <td><%= connection.category %></td>
+                <td>
+                  <form class="event-buttons">
+                    <button type="submit" formmethod="GET" formaction="/connections/<%= connection.id %>/edit">Update</button>
+                    <button type="submit" formmethod="POST" formaction="/connections/<%= connection.id %>?_method=DELETE">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            <% }); %>
+            </tbody>
+          </table>
+        <% }
         else { %>
           <p>You have not created any connections</p>
         <% } %>
