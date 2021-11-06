@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const connectionRoutes = require('./routes/connectionRoutes');
 const mainRoute = require('./routes/mainRoute');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
@@ -12,7 +13,7 @@ let host = 'localhost';
 app.set('view engine', 'ejs');
 
 // connect to database
-mongoose.connect('mongodb://localhost:27017/project')
+mongoose.connect('mongodb://localhost:27017/project', {useUnifiedTopology: true})
 .then(() => {
     app.listen(port, host, () => {
         console.log('Server is running on port', port);
@@ -30,6 +31,8 @@ app.use(methodOverride('_method'));
 app.use('/', mainRoute);
 
 app.use('/connections', connectionRoutes);
+
+app.use('/users', userRoutes);
 
 app.use((req, res, next) => {
     let err =  new Error('The server cannot locate ' + req.url);
