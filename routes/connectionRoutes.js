@@ -1,5 +1,6 @@
 const express = require('express');
 const controller = require('../controllers/connectionController');
+const {isLoggedIn} = require('../middlewares/auth');
 
 const router = express.Router();
 
@@ -7,10 +8,10 @@ const router = express.Router();
 router.get('/', controller.index);
 
 // GET send form to create a new connection
-router.get('/new', controller.new);
+router.get('/new', isLoggedIn, controller.new);
 
 // POST create a new connection
-router.post('/', controller.create);
+router.post('/', isLoggedIn, controller.create);
 
 // GET /connections/:id send details of connection by id
 router.get('/:id', controller.show);
