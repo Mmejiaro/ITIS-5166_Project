@@ -24,10 +24,12 @@
             <%= connection.details %>
           </p>
         </div>
-        <form class="event-buttons">
-          <button type="submit" formmethod="GET" formaction="/connections/<%= connection.id %>/edit">Update</button>
-          <button type="submit" formmethod="POST" formaction="/connections/<%= connection.id %>?_method=DELETE">Delete</button>
-        </form>
+        <% if(user == connection.hostName._id){ %>
+          <form class="event-buttons">
+            <button type="submit" formmethod="GET" formaction="/connections/<%= connection.id %>/edit">Update</button>
+            <button type="submit" formmethod="POST" formaction="/connections/<%= connection.id %>?_method=DELETE">Delete</button>
+          </form>
+        <% } %>
       </div>
     </main>
 <%- include('../partials/footer.ejs') %>
