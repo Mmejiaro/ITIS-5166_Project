@@ -12,7 +12,7 @@
             <img id="event-img" src="<%= connection.img %>" alt="pizza party" />
           </div>
           <div class="event-info">
-            <h3>Hosted by: <%= connection.hostName %></h3>
+            <h3>Hosted by: <%= connection.hostName.firstName + ' ' +  connection.hostName.lastName %></h3>
             <p><%= connection.date %></p>
             <p><%= connection.startTime %> - <%= connection.endTime %></p>
             <p><%= connection.loc %></p>

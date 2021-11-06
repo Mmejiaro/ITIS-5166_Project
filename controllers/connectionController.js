@@ -21,6 +21,7 @@ exports.new = (req, res) => {
 
 exports.create = (req, res, next) => {
     let connection = new model(req.body);
+    connection.hostName = req.session.user;
     connection.save()
     .then((connection) => {
         // console.log(connection);
@@ -41,7 +42,7 @@ exports.show = (req, res, next) => {
         err.status = 400;
         return next(err);
     }
-    model.findById(id)
+    model.findById(id).populate('hostName', 'firstName lastName')
     .then(connection => {
         if(connection) {
             return res.render('./connection/connection', {connection});

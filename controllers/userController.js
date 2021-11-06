@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Connection = require('../models/connection');
 
 exports.new = (req, res, next) => {
     res.render('./user/new');
@@ -55,9 +56,10 @@ exports.login = (req, res, next) => {
 
 exports.profile = (req, res, next) => {
     let id = req.session.user;
-    User.findById(id)
-    .then(user => {
-        res.render('./user/profile', {user});
+    Promise.all([User.findById(id), Connection.find({hostName: id})])
+    .then(results => {
+        const [user, connections] = results;
+        res.render('./user/profile', {user, connections});
     })
     .catch(err => next(err))
 }
