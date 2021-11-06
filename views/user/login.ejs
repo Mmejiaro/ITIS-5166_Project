@@ -1,0 +1,25 @@
+<%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/newConnection.css" />
+    <title>Login</title>
+  </head>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+      <div id="form-container">
+        <form class="form" action="/users/login" method="POST">
+          <div class="form-input">
+            <label for="email">Email:</label>
+            <input id="email" type="email" name="email" required/>
+          </div>
+          <div class="form-input">
+            <label for="password">Password:</label>
+            <input id="password" type="password" name="password" required/>
+          </div>
+          <div class="form-input">
+            <button>Login</button>
+          </div>
+        </form>
+      </div>
+    </main>
+<%- include('../partials/footer.ejs') %>
