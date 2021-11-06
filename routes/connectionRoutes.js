@@ -1,6 +1,6 @@
 const express = require('express');
 const controller = require('../controllers/connectionController');
-const {isLoggedIn} = require('../middlewares/auth');
+const {isLoggedIn, isHost} = require('../middlewares/auth');
 
 const router = express.Router();
 
@@ -17,12 +17,12 @@ router.post('/', isLoggedIn, controller.create);
 router.get('/:id', controller.show);
 
 //GET /connections/:id/edit
-router.get('/:id/edit', controller.edit);
+router.get('/:id/edit', isLoggedIn, isHost, controller.edit);
 
 // PUT /connections/:id update the story by id
-router.put('/:id', controller.update);
+router.put('/:id', isLoggedIn, isHost, controller.update);
 
 // DELETE /connections/:id delete the story by id
-router.delete('/:id', controller.delete);
+router.delete('/:id', isLoggedIn, isHost, controller.delete);
 
 module.exports = router;
