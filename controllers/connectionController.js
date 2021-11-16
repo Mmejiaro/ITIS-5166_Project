@@ -30,6 +30,7 @@ exports.create = (req, res, next) => {
     .catch(err => {
         if(err.name === 'ValidationError') {
             err.status = 400;
+            return res.redirect('/back');
         }
         next(err);
     });
@@ -102,6 +103,7 @@ exports.update = (req, res, next) => {
     .catch(err => {
         if(err.name === 'ValidationError') {
             err.status = 400;
+            return res.redirect('/back');
         }
         next(err);
     });
