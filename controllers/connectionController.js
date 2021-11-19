@@ -93,6 +93,7 @@ exports.update = (req, res, next) => {
     model.findByIdAndUpdate(id, connection, {runValidators: true})
     .then(connection => {
         if(connection) {
+            req.flash('success', 'Connection has been updated successfully');
             res.redirect('/connections/' + id);
         }
         else {
@@ -122,6 +123,7 @@ exports.delete = (req, res, next) => {
     model.findByIdAndDelete(id)
     .then(connection => {
         if(connection) {
+            req.flash('success', 'Connection has been deleted successfully');
             res.redirect('/connections');
         }
         else {
