@@ -11,7 +11,10 @@ exports.create = (req, res, next) => {
         user.email = user.email.toLowerCase();
     }
     user.save()
-        .then(() => res.redirect('/users/login'))
+        .then(() => {
+            req.flash('success', 'Registration has been successful!');
+            res.redirect('/users/login')
+        })
         .catch(err => {
             if (err.name === 'ValidationError') {
                 req.flash('error', err.message);
@@ -43,6 +46,7 @@ exports.login = (req, res, next) => {
                     .then(result => {
                         if (result) {
                             req.session.user = user._id;
+                            firstName = user.firstName;
                             req.flash('success', 'You are now successfully logged in');
                             return res.redirect('/users/profile');
                         }

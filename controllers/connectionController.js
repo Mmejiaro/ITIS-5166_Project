@@ -24,12 +24,13 @@ exports.create = (req, res, next) => {
     connection.hostName = req.session.user;
     connection.save()
     .then((connection) => {
-        // console.log(connection);
+        req.flash('success', 'Connection has been created successfully');
         res.redirect('/connections');
     })
     .catch(err => {
         if(err.name === 'ValidationError') {
             err.status = 400;
+            req.flash('error', err.message);
             return res.redirect('/back');
         }
         next(err);
