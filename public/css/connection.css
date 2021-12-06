@@ -63,6 +63,45 @@ main {
   width: 100%;
 }
 
+.rsvp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20%;
+}
+
+.rsvp p {
+  font-size: 25px;
+}
+
+.rsvp button {
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+#rsvp-yes {
+  background-color: #28a745;
+  border: 5px solid #28a745;
+}
+
+#rsvp-no {
+  background-color: #dc3545;
+  border: 5px solid #dc3545;
+}
+
+#rsvp-maybe {
+  background-color: #3498db;
+  border: 5px solid #3498db;
+}
+
 @media (max-width: 600px) {
   .main {
     flex-direction: column;
