@@ -80,7 +80,7 @@ exports.logoff = (req, res, next) => {
             return next(err);
         }
         else {
-            res.redirect('/');
+            return res.redirect('/users/login');
         }
     });
 }
