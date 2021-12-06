@@ -1,6 +1,7 @@
 const express = require('express');
 const controller = require('../controllers/userController');
-const {isGuest, isLoggedIn} = require('../middlewares/auth');
+const { isGuest, isLoggedIn } = require('../middlewares/auth');
+const { logInLimiter } = require('../middlewares/rateLimiters');
 
 const router = express.Router();
 
@@ -10,7 +11,7 @@ router.post('/', isGuest, controller.create);
 
 router.get('/login', isGuest, controller.loginForm);
 
-router.post('/login', isGuest, controller.login);
+router.post('/login', logInLimiter, isGuest, controller.login);
 
 router.get('/profile', isLoggedIn, controller.profile);
 
