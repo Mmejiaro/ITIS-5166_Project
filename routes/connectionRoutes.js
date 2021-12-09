@@ -1,7 +1,7 @@
 const express = require('express');
 const controller = require('../controllers/connectionController');
 const {isLoggedIn, isHost} = require('../middlewares/auth');
-const { validateId } = require('../middlewares/validator');
+const { validateId, validateConnection } = require('../middlewares/validator');
 
 const router = express.Router();
 
@@ -12,7 +12,7 @@ router.get('/', controller.index);
 router.get('/new', isLoggedIn, controller.new);
 
 // POST create a new connection
-router.post('/', isLoggedIn, controller.create);
+router.post('/', isLoggedIn, validateConnection, controller.create);
 
 // GET /connections/:id send details of connection by id
 router.get('/:id', validateId, controller.show);
@@ -21,7 +21,7 @@ router.get('/:id', validateId, controller.show);
 router.get('/:id/edit', isLoggedIn, isHost, validateId, controller.edit);
 
 // PUT /connections/:id update the story by id
-router.put('/:id', isLoggedIn, isHost, validateId, controller.update);
+router.put('/:id', isLoggedIn, isHost, validateId, validateConnection, controller.update);
 
 // DELETE /connections/:id delete the story by id
 router.delete('/:id', isLoggedIn, isHost, validateId, controller.delete);
