@@ -1,4 +1,5 @@
-const { body, validationResult } = require("express-validator");
+const { validationResult } = require("express-validator");
+const { body } = require("express-validator");
 
 exports.validateId = (req, res, next) => {
     let id = req.params.id;
