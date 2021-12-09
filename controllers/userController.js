@@ -1,11 +1,13 @@
 const User = require('../models/user');
 const Connection = require('../models/connection');
 
+
 exports.new = (req, res, next) => {
     return res.render('./user/new');
 }
 
 exports.create = (req, res, next) => {
+    
     let user = new User(req.body);
     if(user.email){
         user.email = user.email.toLowerCase();
@@ -33,6 +35,7 @@ exports.loginForm = (req, res) => {
 }
 
 exports.login = (req, res, next) => {
+
     let email = req.body.email;
     if(email){
         email = email.toLowerCase();
