@@ -22,14 +22,14 @@
       <nav>
         <a href="/connections">Connections</a>
       </nav>
-      <% if(!user){ %>
+      <% if(user){ %>
         <div>
-          <p>Welcome, Guest</p>
+          <p>Welcome, <%= firstName %> </p>
         </div>
       <% } 
       else { %>
         <div>
-          Welcome, <%= firstName %>
+          <p>Welcome, Guest</p>
         </div>
       <% } %>
     </div>
