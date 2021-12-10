@@ -4,6 +4,6 @@ const { isGuest, isLoggedIn } = require("../middlewares/auth");
 
 const router = express.Router();
 
-router.psost("/:id", controller.create);
+router.post("/:id", controller.create);
 
 module.exports = router;

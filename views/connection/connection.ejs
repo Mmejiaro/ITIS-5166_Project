@@ -33,14 +33,19 @@
       </div>
       <div class="rsvp">
         <p>1 people are going</p>
-        <p>RSVP to attend!</p>
-        <div>
-          <form>
-            <button type="submit" id="rsvp-yes">Yes</button>
-            <button type="submit" id="rsvp-no">No</button>
-            <button type="submit" id="rsvp-maybe">Maybe</button>
-          </form>
-        </div>
+        <% if (user) {%>
+          <% if(user != connection.hostName._id){ %>
+            <p>RSVP to attend!</p>
+            <div>
+              <form>
+                <button type="submit" id="rsvp-yes">Yes</button>
+                <!-- formmethod="POST" formaction="/connections/<%= connection.id%>/rsvp" -->
+                <button type="submit" id="rsvp-no">No</button>
+                <button type="submit" id="rsvp-maybe">Maybe</button>
+              </form>
+            </div>
+          <% } %>
+        <% } %>
       </div>
     </main>
 <%- include('../partials/footer.ejs') %>

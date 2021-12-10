@@ -55,7 +55,7 @@ exports.validateConnection = [
     body('name', 'Title must be included').notEmpty().trim().escape(),
     body('category', 'Category is required').notEmpty().trim().escape(),
     body('img', 'URL of image needed').isURL().trim(),
-    body('date', 'Date must be valid').isDate().trim(),
+    body('date', 'Date must be valid / after today\'s date').isDate().isAfter().trim(),
     body('startTime', 'start time must be included').trim(),
     body('endTime', 'end time must be included').trim(),
     body('loc', 'location must be included').notEmpty().trim().escape(),
